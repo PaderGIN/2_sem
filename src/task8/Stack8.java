@@ -1,4 +1,4 @@
-package task8_2;
+package task8;
 
 class Stack{
     private static final int DEFSIZE = 16;

@@ -1,4 +1,4 @@
-package task8_2;
+package task8;
 
 import java.util.Stack;
 
@@ -6,10 +6,14 @@ public class Calc extends Compf {
 
     private final Stack<Integer> s;
     private static String num;
+    public static int temp;
+
 
     public Calc() {
         s = new Stack<>();
         num = "";
+        flag = true;
+        temp=0;
     }
 
     private static int char2int(char c) {
@@ -32,6 +36,8 @@ public class Calc extends Compf {
             case '*':
             case '/':
                 return SYM_OPER;
+            case '=':
+                return SYM_ANS;
             default:
                 return symOther(c);
         }
@@ -57,15 +63,29 @@ public class Calc extends Compf {
             case SYM_OTHER:
                 nextOther(c);
                 break;
+            case SYM_ANS:
+                PrintAns();
+                break;
         }
     }
 
     private void AddNum() {
-        if (!num.equals("")){
+        if (!num.equals("")) {
             s.push(Str2int(num));
-            num="";
+            num = "";
         }
     }
+
+    private void PrintAns() {
+        temp = s.pop();
+        System.out.print("Ответ: " + temp);
+        flag = true;
+        //returnAns(temp);
+    }
+
+    //public static int returnAns(int temp) {
+//        return temp;
+//    }
 
     @Override
     protected int symOther(char c) {
@@ -102,12 +122,21 @@ public class Calc extends Compf {
 
     @Override
     protected void nextOther(char c) {
-        num+=c;
+        num += c;
+    }
+
+    private boolean protectFromStpd(char ch) {
+        if (ch == '=' && s.empty()) {             // защита от дурака
+            return true;
+        } else return false;
     }
 
     @Override
     public final void compile(char[] str) {
-        super.compile(str);
-        System.out.println("Ответ: " + s.peek()); //вывод ответа
+        if (protectFromStpd(str[0])) {
+            System.out.println("Выражение пустое! Введите другое!");
+        } else {
+            super.compile(str);
+        }
     }
 }
