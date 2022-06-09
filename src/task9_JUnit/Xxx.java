@@ -1,4 +1,4 @@
-package JUnit;
+package task9_JUnit;
 
 public class Xxx {
     private int _attr;

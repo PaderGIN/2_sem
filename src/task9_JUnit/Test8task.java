@@ -1,4 +1,4 @@
-package JUnit;
+package task9_JUnit;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

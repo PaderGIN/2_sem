@@ -83,10 +83,6 @@ public class Calc extends Compf {
         //returnAns(temp);
     }
 
-    //public static int returnAns(int temp) {
-//        return temp;
-//    }
-
     @Override
     protected int symOther(char c) {
         if (c < '0' || c > '9') {

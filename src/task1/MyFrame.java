@@ -35,15 +35,8 @@ public class MyFrame extends JFrame {
         g.drawLine(-width/2, 0, width/2, 0);
         g.drawLine(0, height/2, 0, -height/2);
 
-        //bird.draw(g);
         birds.draw(g);
 
-        /*
-        g.drawLine(0, 0, 40, 40);
-        g.setColor(Color.RED);
-        g.drawOval(40, 40, 80, 80);
-        g.setColor(new Color(255, 0, 0));
-        g.fillOval(120, 120, 80, 80);
-         */
+
     }
 }
