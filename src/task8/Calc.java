@@ -16,9 +16,9 @@ public class Calc extends Compf {
         temp=0;
     }
 
-    private static int char2int(char c) {
-        return (int) c - (int) '0';
-    }
+//    private static int char2int(char c) {
+//        return (int) c - (int) '0';
+//    }
 
     private static int Str2int(String c) {
         return Integer.parseInt(c);
@@ -78,7 +78,7 @@ public class Calc extends Compf {
 
     private void PrintAns() {
         temp = s.pop();
-        System.out.print("Ответ: " + temp);
+        System.out.print("Answer: " + temp);
         flag = true;
         //returnAns(temp);
     }
@@ -86,7 +86,7 @@ public class Calc extends Compf {
     @Override
     protected int symOther(char c) {
         if (c < '0' || c > '9') {
-            System.out.println("Недопустимый символ: " + c);
+            System.out.println("Wrong symbol: " + c);
 
             System.exit(0);
         }
@@ -121,16 +121,16 @@ public class Calc extends Compf {
         num += c;
     }
 
-    private boolean protectFromStpd(char ch) {
-        if (ch == '=' && s.empty()) {             // защита от дурака
+    private boolean protectFrom(char ch) {
+        if (ch == '=' && s.empty()) {
             return true;
         } else return false;
     }
 
     @Override
     public final void compile(char[] str) {
-        if (protectFromStpd(str[0])) {
-            System.out.println("Выражение пустое! Введите другое!");
+        if (protectFrom(str[0])) {
+            System.out.println("The expression is empty! Enter another!");
         } else {
             super.compile(str);
         }

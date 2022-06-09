@@ -66,7 +66,7 @@ class Compf extends java.util.Stack<Character> {
     protected int symOther(char c) {
 
         if (c < 'a' || c > 'z') {
-            System.out.println("Недопустимый символ: " + c);
+            System.out.println("Wrong symbol: " + c);
             System.exit(0);
         }
 

@@ -9,7 +9,7 @@ public class CalcTest{
 
         Scanner in = new Scanner(System.in);
         while(true){
-            System.out.print("Введите формулу -> ");
+            System.out.print("Enter an expression -> ");
             c.compile(in.next().toCharArray());
             System.out.print("\n");
         }
